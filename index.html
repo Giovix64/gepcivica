@@ -1,0 +1,1548 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Art. 41 Cost. — Il Valore dell'Impresa</title>
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════════════
+   DESIGN SYSTEM — Istituzionale Italiano
+   Palette: crema/bianco + verde italiano + rosso Repubblica
+   Tipografia: Lora (serif editoriale) + Plus Jakarta Sans
+══════════════════════════════════════════════ */
+:root {
+  --cream:   #faf8f4;
+  --white:   #ffffff;
+  --ink:     #1a1714;
+  --ink-mid: #4a4540;
+  --ink-low: #8a837a;
+  --line:    #e8e2d8;
+  --line-soft: #f0ece5;
+
+  --green:   #007b3e;       /* Verde italiano */
+  --green-l: #e8f4ee;
+  --green-m: #c5e0d0;
+  --red:     #c0392b;       /* Rosso Repubblica */
+  --red-l:   #fceeed;
+  --amber:   #b8860b;
+  --amber-l: #fdf6e0;
+  --blue:    #1a4f8a;
+  --blue-l:  #e8f0f9;
+
+  --r: 12px;
+  --r-sm: 8px;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── HERO ── */
+.hero {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-tricolor {
+  height: 6px;
+  background: linear-gradient(to right, var(--green) 33.33%, #fff 33.33% 66.66%, var(--red) 66.66%);
+}
+
+.hero-body {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 5rem 2rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--green);
+  background: var(--green-l);
+  border: 1px solid var(--green-m);
+  padding: 4px 14px;
+  border-radius: 999px;
+  margin-bottom: 1.2rem;
+  animation: fadeUp .5s ease both;
+}
+
+.hero h1 {
+  font-family: 'Lora', serif;
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--ink);
+  animation: fadeUp .5s .07s ease both;
+}
+
+.hero h1 em {
+  color: var(--green);
+  font-style: italic;
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: var(--ink-mid);
+  font-weight: 400;
+  margin-top: 1rem;
+  max-width: 520px;
+  animation: fadeUp .5s .14s ease both;
+}
+
+.hero-meta {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-low);
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  animation: fadeUp .5s .2s ease both;
+}
+
+.hero-art {
+  font-family: 'Lora', serif;
+  font-size: clamp(5rem, 12vw, 10rem);
+  font-weight: 700;
+  color: var(--green-m);
+  line-height: 1;
+  user-select: none;
+  animation: fadeUp .5s .05s ease both;
+}
+
+/* ── NAV TABS ── */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 200;
+  background: var(--white);
+  border-bottom: 2px solid var(--line);
+  box-shadow: 0 2px 12px rgba(0,0,0,.05);
+}
+
+.nav-inner {
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding: 0 1rem;
+}
+.nav-inner::-webkit-scrollbar { display: none; }
+
+.nav-tab {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: .9rem 1.1rem;
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--ink-low);
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  transition: color .18s, border-color .18s;
+  white-space: nowrap;
+  letter-spacing: .01em;
+}
+
+.nav-tab:hover { color: var(--ink); }
+.nav-tab.active { color: var(--green); border-bottom-color: var(--green); }
+
+.tab-num {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  font-size: 10px;
+  font-family: 'DM Mono', monospace;
+  background: var(--line-soft);
+  color: var(--ink-low);
+  transition: background .18s, color .18s;
+  font-weight: 400;
+}
+.nav-tab.active .tab-num { background: var(--green-m); color: var(--green); }
+
+/* ── SECTIONS ── */
+.section {
+  display: none;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 5rem;
+  animation: fadeUp .35s ease both;
+}
+.section.active { display: block; }
+
+/* ── TYPOGRAPHY ── */
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: 10.5px;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: .5rem;
+  font-weight: 500;
+}
+
+.section-title {
+  font-family: 'Lora', serif;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.section-title em { color: var(--green); font-style: italic; }
+
+.lead {
+  font-size: 1.08rem;
+  color: var(--ink-mid);
+  max-width: 680px;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  border-left: 3px solid var(--green);
+  padding-left: 1rem;
+  line-height: 1.7;
+}
+
+/* ── TESTO ARTICOLO ── */
+.costituzione-box {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--green);
+  border-radius: 0 var(--r) var(--r) 0;
+  padding: 2rem 2.5rem;
+  margin: 2rem 0;
+}
+
+.costituzione-box .label {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink-low);
+  margin-bottom: .8rem;
+}
+
+.costituzione-box p {
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--ink);
+  line-height: 1.85;
+  margin-bottom: .6rem;
+}
+
+.costituzione-box p:last-child { margin-bottom: 0; }
+
+/* ── CARDS GRID ── */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.1rem;
+  margin: 1.8rem 0;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1.6rem 1.8rem;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow .2s, transform .2s;
+}
+
+.card:hover {
+  box-shadow: 0 6px 28px rgba(0,0,0,.08);
+  transform: translateY(-2px);
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--card-accent, var(--green));
+  border-radius: var(--r) var(--r) 0 0;
+}
+
+.card-icon { font-size: 1.8rem; margin-bottom: .8rem; }
+.card-title {
+  font-family: 'Lora', serif;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: .5rem;
+}
+.card-body { font-size: .875rem; color: var(--ink-mid); line-height: 1.7; }
+
+/* ── COMMA BLOCKS ── */
+.comma-block {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 2rem;
+  margin: 1rem 0;
+  display: grid;
+  grid-template-columns: 80px 1fr;
+  gap: 1.5rem;
+  transition: box-shadow .2s;
+}
+
+.comma-block:hover { box-shadow: 0 4px 20px rgba(0,0,0,.06); }
+
+.comma-num {
+  font-family: 'Lora', serif;
+  font-size: 3rem;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--color, var(--green));
+  opacity: .25;
+}
+
+.comma-title {
+  font-family: 'Lora', serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: .4rem;
+}
+
+.comma-emoji { font-size: 1.2rem; margin-right: 6px; }
+
+.comma-body { font-size: .9rem; color: var(--ink-mid); line-height: 1.75; }
+
+/* ── STATS ROW ── */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.stat-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1.4rem 1.2rem;
+  text-align: center;
+}
+
+.stat-card .num {
+  font-family: 'Lora', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--green);
+  line-height: 1;
+  margin-bottom: .3rem;
+}
+
+.stat-card .unit {
+  font-family: 'DM Mono', monospace;
+  font-size: 10px;
+  letter-spacing: .1em;
+  color: var(--ink-low);
+  text-transform: uppercase;
+  margin-bottom: .4rem;
+}
+
+.stat-card .lbl { font-size: .8rem; color: var(--ink-mid); }
+
+/* ── NOTICE BOX ── */
+.notice {
+  border-radius: var(--r);
+  padding: 1.4rem 1.8rem;
+  margin: 1.8rem 0;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.notice.green { background: var(--green-l); border-left: 4px solid var(--green); }
+.notice.red   { background: var(--red-l);   border-left: 4px solid var(--red);   }
+.notice.amber { background: var(--amber-l); border-left: 4px solid var(--amber); }
+.notice.blue  { background: var(--blue-l);  border-left: 4px solid var(--blue);  }
+
+.notice-icon { font-size: 1.4rem; flex-shrink: 0; margin-top: .1rem; }
+
+.notice-title {
+  font-weight: 700;
+  font-size: .92rem;
+  color: var(--ink);
+  margin-bottom: .3rem;
+}
+
+.notice-body { font-size: .875rem; color: var(--ink-mid); line-height: 1.7; }
+
+/* ── STEP LIST ── */
+.steps { margin: 1.8rem 0; display: flex; flex-direction: column; gap: .9rem; }
+
+.step {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+  transition: border-color .18s;
+}
+
+.step:hover { border-color: var(--green-m); }
+
+.step-n {
+  font-family: 'Lora', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--green);
+  opacity: .6;
+  min-width: 32px;
+  line-height: 1.2;
+}
+
+.step-title { font-weight: 700; font-size: .92rem; color: var(--ink); margin-bottom: .2rem; }
+.step-body  { font-size: .85rem; color: var(--ink-mid); line-height: 1.65; }
+
+/* ── TABLE ── */
+.tbl-wrap { overflow-x: auto; margin: 1.8rem 0; border-radius: var(--r); border: 1px solid var(--line); }
+
+table { width: 100%; border-collapse: collapse; background: var(--white); font-size: .875rem; }
+
+thead th {
+  background: var(--cream);
+  font-family: 'DM Mono', monospace;
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-mid);
+  padding: .9rem 1.2rem;
+  text-align: left;
+  border-bottom: 2px solid var(--line);
+}
+
+tbody td {
+  padding: .85rem 1.2rem;
+  color: var(--ink-mid);
+  border-bottom: 1px solid var(--line-soft);
+  vertical-align: top;
+}
+
+tbody tr:last-child td { border-bottom: none; }
+tbody tr:hover td { background: var(--cream); }
+tbody td strong { color: var(--ink); font-weight: 600; }
+
+/* ── TIMELINE ── */
+.timeline { padding-left: 1.5rem; border-left: 2px solid var(--line); margin: 2rem 0; }
+
+.tl-item { position: relative; padding: 0 0 1.8rem 1.5rem; }
+
+.tl-item::before {
+  content: '';
+  position: absolute;
+  left: -7px; top: 6px;
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--green);
+  border: 2px solid var(--white);
+  box-shadow: 0 0 0 2px var(--green-m);
+}
+
+.tl-date {
+  font-family: 'DM Mono', monospace;
+  font-size: .78rem;
+  letter-spacing: .06em;
+  color: var(--green);
+  font-weight: 500;
+  margin-bottom: .2rem;
+}
+
+.tl-title { font-weight: 700; font-size: .95rem; color: var(--ink); margin-bottom: .3rem; }
+.tl-body  { font-size: .85rem; color: var(--ink-mid); line-height: 1.7; }
+
+/* ── COMPARISON CARDS ── */
+.cmp-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.cmp {
+  border-radius: var(--r);
+  padding: 1.5rem;
+  border: 1.5px solid;
+  position: relative;
+}
+
+.cmp.no  { border-color: #f5c6c2; background: var(--red-l); }
+.cmp.yes { border-color: var(--green-m); background: var(--green-l); }
+
+.cmp-badge {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 2px 10px;
+  border-radius: 999px;
+  margin-bottom: .7rem;
+  font-weight: 500;
+}
+
+.cmp.no  .cmp-badge { background: #fad7d5; color: var(--red); }
+.cmp.yes .cmp-badge { background: var(--green-m); color: var(--green); }
+
+.cmp-name { font-family: 'Lora', serif; font-weight: 700; font-size: 1rem; margin-bottom: .5rem; }
+.cmp.no  .cmp-name { color: var(--red); }
+.cmp.yes .cmp-name { color: var(--green); }
+.cmp-body { font-size: .83rem; color: var(--ink-mid); line-height: 1.65; }
+
+/* ── LIMIT PILLS ── */
+.limit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.limit {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1.4rem 1.6rem;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: border-color .18s, box-shadow .18s;
+}
+
+.limit:hover { border-color: var(--green-m); box-shadow: 0 3px 16px rgba(0,120,60,.08); }
+
+.limit-ico { font-size: 1.6rem; flex-shrink: 0; }
+.limit-title { font-weight: 700; font-size: .92rem; color: var(--ink); margin-bottom: .3rem; }
+.limit-body  { font-size: .83rem; color: var(--ink-mid); line-height: 1.65; }
+
+.badge-new {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: .62rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--green-m);
+  color: var(--green);
+  margin-left: 6px;
+  font-weight: 500;
+}
+
+/* ── ATTUALITÀ CARDS ── */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.2rem;
+  margin: 1.8rem 0;
+}
+
+.news-card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1.6rem;
+  transition: box-shadow .2s;
+}
+
+.news-card:hover { box-shadow: 0 6px 24px rgba(0,0,0,.08); }
+
+.news-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'DM Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 999px;
+  margin-bottom: .8rem;
+  font-weight: 500;
+}
+
+.news-tag.red    { background: var(--red-l);   color: var(--red);   }
+.news-tag.green  { background: var(--green-l); color: var(--green); }
+.news-tag.blue   { background: var(--blue-l);  color: var(--blue);  }
+.news-tag.amber  { background: var(--amber-l); color: var(--amber); }
+
+.news-title {
+  font-family: 'Lora', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: .5rem;
+  line-height: 1.4;
+}
+
+.news-body { font-size: .85rem; color: var(--ink-mid); line-height: 1.7; }
+
+.news-source {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: .9rem;
+  font-family: 'DM Mono', monospace;
+  font-size: .68rem;
+  letter-spacing: .06em;
+  color: var(--ink-low);
+}
+
+/* ── STAKEHOLDER ── */
+.sh-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.sh {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1.5rem;
+  text-align: center;
+  transition: border-color .18s;
+}
+
+.sh:hover { border-color: var(--green-m); }
+
+.sh-ico { font-size: 2.2rem; margin-bottom: .7rem; }
+.sh-name { font-weight: 700; font-size: .95rem; color: var(--ink); margin-bottom: .4rem; }
+.sh-desc { font-size: .82rem; color: var(--ink-mid); line-height: 1.65; }
+
+/* ── SDG ── */
+.sdg-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.sdg {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1.3rem;
+  display: flex;
+  gap: .9rem;
+  align-items: center;
+}
+
+.sdg-n {
+  font-family: 'Lora', serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--green);
+  min-width: 48px;
+  line-height: 1;
+  opacity: .7;
+}
+
+.sdg-text { font-size: .88rem; font-weight: 600; color: var(--ink); }
+.sdg-sub  { font-size: .78rem; color: var(--ink-mid); }
+
+/* ── ESG BLOCKS ── */
+.esg-row {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+@media(max-width:620px) { .esg-row { grid-template-columns: 1fr; } }
+
+.esg {
+  border-radius: var(--r);
+  padding: 1.5rem;
+  border: 1.5px solid;
+}
+
+.esg.E { border-color: var(--green-m); background: var(--green-l); }
+.esg.S { border-color: #c5d8f0;       background: var(--blue-l); }
+.esg.G { border-color: #e5d5a0;       background: var(--amber-l); }
+
+.esg-letter {
+  font-family: 'Lora', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: .5rem;
+}
+
+.esg.E .esg-letter { color: var(--green); }
+.esg.S .esg-letter { color: var(--blue); }
+.esg.G .esg-letter { color: var(--amber); }
+
+.esg-title { font-weight: 700; font-size: .92rem; color: var(--ink); margin-bottom: .4rem; }
+.esg-body  { font-size: .83rem; color: var(--ink-mid); line-height: 1.65; }
+
+/* ── FORMA GIURIDICA ── */
+.forme-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.forma {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 1.5rem;
+  border-top: 4px solid var(--color);
+  transition: box-shadow .2s;
+}
+
+.forma:hover { box-shadow: 0 4px 18px rgba(0,0,0,.07); }
+
+.forma-label {
+  font-family: 'DM Mono', monospace;
+  font-size: .7rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--color);
+  margin-bottom: .4rem;
+}
+
+.forma-title { font-family: 'Lora', serif; font-weight: 700; font-size: 1rem; color: var(--ink); margin-bottom: .5rem; }
+.forma-body  { font-size: .83rem; color: var(--ink-mid); line-height: 1.65; }
+.forma-risk  { display: inline-block; margin-top: .7rem; font-size: .75rem; font-weight: 600; padding: 2px 10px; border-radius: 999px; background: var(--line-soft); color: var(--ink-mid); }
+
+/* ── CRIMINE TABLE ── */
+.crime-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin: 1.8rem 0;
+}
+
+.crime {
+  background: var(--white);
+  border: 1px solid #f5c6c2;
+  border-top: 3px solid var(--red);
+  border-radius: var(--r);
+  padding: 1.4rem;
+}
+
+.crime-title {
+  font-weight: 700;
+  color: var(--red);
+  font-size: .92rem;
+  margin-bottom: .8rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.crime-row { margin-bottom: .6rem; }
+.crime-lbl { font-family: 'DM Mono', monospace; font-size: .68rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-low); margin-bottom: .15rem; }
+.crime-val { font-size: .84rem; color: var(--ink-mid); line-height: 1.6; }
+
+/* ── SECTION DIVIDER ── */
+.divider { border: none; border-top: 1px solid var(--line); margin: 2.5rem 0; }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── FOOTER ── */
+footer {
+  background: var(--ink);
+  color: rgba(255,255,255,.55);
+  font-size: .8rem;
+  padding: 2rem;
+  text-align: center;
+}
+
+footer .tricolor {
+  height: 4px;
+  background: linear-gradient(to right, var(--green) 33.33%, #fff 33.33% 66.66%, var(--red) 66.66%);
+  margin-bottom: 1.5rem;
+}
+
+footer strong { color: rgba(255,255,255,.85); }
+
+footer a { color: rgba(255,255,255,.5); text-decoration: none; }
+footer a:hover { color: rgba(255,255,255,.8); }
+
+/* ── RESPONSIVE ── */
+@media(max-width:700px) {
+  .hero-body { grid-template-columns: 1fr; }
+  .hero-art { display: none; }
+  .comma-block { grid-template-columns: 1fr; }
+  .comma-num { font-size: 2rem; opacity: .2; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<header class="hero">
+  <div class="hero-tricolor"></div>
+  <div class="hero-body">
+    <div>
+      <div class="hero-tag">📜 Educazione Civica · Classe 5ª</div>
+      <h1>Il Valore<br>dell'<em>Impresa</em></h1>
+      <p class="hero-sub">Libertà, responsabilità e sostenibilità nell'Articolo 41 della Costituzione italiana.</p>
+      <div class="hero-meta">
+        <span>6 sezioni tematiche</span>
+        <span>Dati 2025–2026</span>
+        <span>Fonti istituzionali</span>
+      </div>
+    </div>
+    <div class="hero-art" aria-hidden="true">41</div>
+  </div>
+</header>
+
+<!-- ══ NAV ══ -->
+<nav>
+  <div class="nav-inner">
+    <button class="nav-tab active" onclick="show('s1',this)"><span class="tab-num">1</span> Il Testo</button>
+    <button class="nav-tab" onclick="show('s2',this)"><span class="tab-num">2</span> Libertà d'Impresa</button>
+    <button class="nav-tab" onclick="show('s3',this)"><span class="tab-num">3</span> Limiti &amp; Stato</button>
+    <button class="nav-tab" onclick="show('s4',this)"><span class="tab-num">4</span> Attualità</button>
+    <button class="nav-tab" onclick="show('s5',this)"><span class="tab-num">5</span> Tipi d'Impresa</button>
+    <button class="nav-tab" onclick="show('s6',this)"><span class="tab-num">6</span> Sostenibilità</button>
+    <button class="nav-tab" onclick="show('s7',this)"><span class="tab-num">7</span> Legalità</button>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     S1 — IL TESTO
+══════════════════════════════════════════ -->
+<section id="s1" class="section active">
+  <div class="eyebrow">Sezione 1 · Il Testo</div>
+  <h2 class="section-title">L'Articolo <em>41</em><br>della Costituzione</h2>
+  <p class="lead">Il "pilastro" dell'economia italiana: tre commi che bilanciano libertà di mercato e tutela della collettività. Approvato nel 1948, aggiornato nel 2022.</p>
+
+  <div class="costituzione-box">
+    <div class="label">Testo vigente — Art. 41 Cost. (aggiornato 2022)</div>
+    <p><strong>1°</strong> — L'iniziativa economica privata è libera.</p>
+    <p><strong>2°</strong> — Non può svolgersi in contrasto con l'utilità sociale o in modo da recare danno alla salute, all'ambiente, alla sicurezza, alla libertà, alla dignità umana.</p>
+    <p><strong>3°</strong> — La legge determina i programmi e i controlli opportuni perché l'attività economica pubblica e privata possa essere indirizzata e coordinata a fini sociali e ambientali.</p>
+  </div>
+
+  <div class="cards" style="margin-top:2rem">
+    <div class="card" style="--card-accent:var(--green)">
+      <div class="card-icon">🚀</div>
+      <div class="card-title">Comma 1 — Il Motore</div>
+      <div class="card-body">Lo Stato <strong>riconosce e protegge il libero mercato</strong>. Chiunque può aprire un'attività, produrre, offrire servizi e guadagnare. Non siamo in un'economia pianificata.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--red)">
+      <div class="card-icon">🛑</div>
+      <div class="card-title">Comma 2 — I Freni</div>
+      <div class="card-body">Il profitto <strong>non giustifica tutto</strong>. L'impresa si ferma davanti a salute, ambiente, sicurezza, libertà e dignità umana. Il 2022 ha reso esplicite salute e ambiente.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--blue)">
+      <div class="card-icon">🏛️</div>
+      <div class="card-title">Comma 3 — Il Volante</div>
+      <div class="card-body">Lo Stato <strong>non è arbitro passivo</strong>: guida l'economia verso fini sociali e ambientali con leggi, incentivi e controlli. Italia = <em>economia mista</em>.</div>
+    </div>
+  </div>
+
+  <div class="notice green">
+    <div class="notice-icon">💡</div>
+    <div>
+      <div class="notice-title">Il messaggio in una riga</div>
+      <div class="notice-body">L'Italia rifiuta sia il capitalismo selvaggio (nessun limite) sia lo statalismo (lo Stato decide tutto). Sceglie la via di mezzo: <strong>economia sociale di mercato</strong>, dove l'impresa privata è il motore e lo Stato il guardiano.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="eyebrow">Contesto storico</div>
+  <h3 style="font-family:'Lora',serif;font-size:1.4rem;margin-bottom:1.2rem;">Perché fu scritto così?</h3>
+
+  <div class="cmp-grid">
+    <div class="cmp no">
+      <div class="cmp-badge">❌ Scartato</div>
+      <div class="cmp-name">Capitalismo Puro</div>
+      <div class="cmp-body">Mercato senza regole. Genera sfruttamento, enormi disuguaglianze, nessuna tutela per i lavoratori.</div>
+    </div>
+    <div class="cmp no">
+      <div class="cmp-badge">❌ Scartato</div>
+      <div class="cmp-name">Economia Pianificata</div>
+      <div class="cmp-body">Modello sovietico: lo Stato possiede tutto. Sopprime libertà individuale e iniziativa privata.</div>
+    </div>
+    <div class="cmp no">
+      <div class="cmp-badge">❌ Scartato</div>
+      <div class="cmp-name">Economia Fascista</div>
+      <div class="cmp-body">Imprese subordinate al regime, sindacati aboliti. Strumento di controllo politico, non di benessere.</div>
+    </div>
+    <div class="cmp yes">
+      <div class="cmp-badge">✅ Scelto</div>
+      <div class="cmp-name">Economia Mista</div>
+      <div class="cmp-body">Iniziativa privata libera + regole di tutela + Stato che indirizza. Bilancia libertà e giustizia sociale.</div>
+    </div>
+  </div>
+
+  <div class="timeline" style="margin-top:2rem">
+    <div class="tl-item">
+      <div class="tl-date">1948</div>
+      <div class="tl-title">Entrata in vigore della Costituzione</div>
+      <div class="tl-body">L'Art. 41 nasce come pilastro dell'economia mista, dopo la guerra e la dittatura.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">1970</div>
+      <div class="tl-title">Statuto dei Lavoratori</div>
+      <div class="tl-body">Concretizza i diritti di dignità e libertà del 2° comma: stop ai licenziamenti illegittimi, tutela sindacale.</div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-date">2008</div>
+      <div class="tl-title">Testo Unico Sicurezza (D.Lgs 81/2008)</div>
+      <div class="tl-body">Sistematizza le regole sulla salute e sicurezza nei luoghi di lavoro.</div>
+    </div>
+    <div class="tl-item" style="padding-bottom:0">
+      <div class="tl-date">2022 🔑</div>
+      <div class="tl-title">Riforma Costituzionale</div>
+      <div class="tl-body">Il Parlamento inserisce esplicitamente <strong>"salute"</strong> e <strong>"ambiente"</strong> nel 2° comma. Lo sviluppo deve essere <em>sostenibile</em>: ora è scritto in Costituzione.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S2 — LIBERTÀ D'IMPRESA
+══════════════════════════════════════════ -->
+<section id="s2" class="section">
+  <div class="eyebrow">Sezione 2 · Comma 1</div>
+  <h2 class="section-title">Libertà di<br><em>Iniziativa Economica</em></h2>
+  <p class="lead">Chiunque ha il diritto di trasformare un'idea in un'impresa. Ma cosa significa concretamente questa libertà? E quali passi bisogna seguire per esercitarla?</p>
+
+  <div class="cards">
+    <div class="card" style="--card-accent:var(--green)">
+      <div class="card-icon">🎯</div>
+      <div class="card-title">Libertà di organizzazione</div>
+      <div class="card-body">Scegli tu strumenti, lavoratori, orari, metodi. Nessun ministero approva come organizzi la tua impresa.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--blue)">
+      <div class="card-icon">💲</div>
+      <div class="card-title">Libertà di mercato</div>
+      <div class="card-body">Stabilisci tu prezzi e strategie commerciali. Puoi competere liberamente e scegliere i tuoi clienti e fornitori.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--amber)">
+      <div class="card-icon">📈</div>
+      <div class="card-title">Diritto al profitto</div>
+      <div class="card-body">Se la tua idea funziona, i guadagni (al netto delle tasse) sono tuoi. Lo Stato non si appropria del successo privato.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="eyebrow">Come si apre un'impresa in Italia</div>
+  <h3 style="font-family:'Lora',serif;font-size:1.3rem;margin-bottom:1.5rem;">I 5 passi obbligatori</h3>
+
+  <div class="steps">
+    <div class="step">
+      <div class="step-n">1</div>
+      <div>
+        <div class="step-title">Partita IVA — Agenzia delle Entrate</div>
+        <div class="step-body">Codice a 11 cifre che identifica fiscalmente l'attività. Necessario per emettere fatture e pagare le imposte. Si richiede online gratuitamente.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">2</div>
+      <div>
+        <div class="step-title">Scelta della forma giuridica</div>
+        <div class="step-body">Ditta individuale (semplice, responsabilità illimitata) oppure S.r.l. / S.p.A. (separa il patrimonio personale dai debiti aziendali).</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">3</div>
+      <div>
+        <div class="step-title">Registro delle Imprese — Camera di Commercio</div>
+        <div class="step-body">L'impresa diventa ufficiale e pubblica. Obbligatorio per tutte le società commerciali.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">4</div>
+      <div>
+        <div class="step-title">Iscrizione INPS e INAIL</div>
+        <div class="step-body">Posizioni previdenziali (pensione) e assicurative (infortuni) obbligatorie per il titolare e ogni dipendente assunto.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n">5</div>
+      <div>
+        <div class="step-title">SCIA al Comune (se necessaria)</div>
+        <div class="step-body">Segnalazione Certificata di Inizio Attività per attività fisiche o commerciali: autocertifica il rispetto delle norme edilizie e sanitarie.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="notice amber">
+    <div class="notice-icon">⚠️</div>
+    <div>
+      <div class="notice-title">Libertà ≠ assenza di burocrazia</div>
+      <div class="notice-body">Le formalità di avvio garantiscono che tutti operino secondo le stesse regole, proteggendo lavoratori, clienti e concorrenti onesti. La burocrazia è il <em>costo della legalità</em>.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S3 — LIMITI & STATO
+══════════════════════════════════════════ -->
+<section id="s3" class="section">
+  <div class="eyebrow">Sezione 3 · Commi 2 &amp; 3</div>
+  <h2 class="section-title">Limiti e Ruolo<br><em>dello Stato</em></h2>
+  <p class="lead">Il secondo comma dice "fin qui e non oltre". Il terzo dà allo Stato il compito di guidare l'intera economia. Insieme definiscono cosa rende l'Italia un'economia <em>mista</em>.</p>
+
+  <div class="eyebrow">I 5 limiti invalicabili — Comma 2</div>
+  <div class="limit-grid" style="margin-top:1rem">
+    <div class="limit">
+      <div class="limit-ico">⛑️</div>
+      <div>
+        <div class="limit-title">Sicurezza</div>
+        <div class="limit-body">Luoghi di lavoro sicuri, macchinari a norma, dispositivi di protezione obbligatori. Il profitto non si costruisce sulla vita dei lavoratori.</div>
+      </div>
+    </div>
+    <div class="limit">
+      <div class="limit-ico">🌿</div>
+      <div>
+        <div class="limit-title">Ambiente <span class="badge-new">2022</span></div>
+        <div class="limit-body">Le imprese non possono avvelenare fiumi, inquinare l'aria o distruggere ecosistemi. Dal 2022 esplicitamente in Costituzione.</div>
+      </div>
+    </div>
+    <div class="limit">
+      <div class="limit-ico">🗽</div>
+      <div>
+        <div class="limit-title">Libertà</div>
+        <div class="limit-body">I lavoratori non sono proprietà dell'azienda. Niente ricatti occupazionali, sorveglianza invasiva o limitazioni ai diritti sindacali.</div>
+      </div>
+    </div>
+    <div class="limit">
+      <div class="limit-ico">🫂</div>
+      <div>
+        <div class="limit-title">Dignità Umana</div>
+        <div class="limit-body">Stop a caporalato, lavoro minorile e retribuzioni da fame. Il lavoratore è una persona, non un costo da tagliare.</div>
+      </div>
+    </div>
+    <div class="limit">
+      <div class="limit-ico">❤️</div>
+      <div>
+        <div class="limit-title">Salute <span class="badge-new">2022</span></div>
+        <div class="limit-body">Nessuna impresa può mettere a rischio la salute pubblica: dai prodotti alimentari alle emissioni di fabbriche e raffinerie.</div>
+      </div>
+    </div>
+    <div class="limit">
+      <div class="limit-ico">⚖️</div>
+      <div>
+        <div class="limit-title">Utilità Sociale</div>
+        <div class="limit-body">Principio cardine: l'interesse del singolo imprenditore cede davanti all'interesse della collettività. Il mercato non è legge assoluta.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="eyebrow">Il ruolo dello Stato — Comma 3</div>
+  <div class="cards" style="margin-top:1rem">
+    <div class="card" style="--card-accent:var(--blue)">
+      <div class="card-icon">🎛️</div>
+      <div class="card-title">Programmazione &amp; Incentivi</div>
+      <div class="card-body">Lo Stato non ordina cosa produrre, ma rende alcune scelte convenienti. Es: sgravi fiscali per chi assume giovani, bonus per pannelli solari, incentivi alla transizione ecologica.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--red)">
+      <div class="card-icon">🔍</div>
+      <div class="card-title">Controlli</div>
+      <div class="card-body">Tramite INPS, INAIL, Antitrust (AGCM), ASL, ARPA e Ispettorato del Lavoro lo Stato verifica che le imprese rispettino le regole. Chi sgarra paga o chiude.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--green)">
+      <div class="card-icon">🏭</div>
+      <div class="card-title">Impresa Pubblica</div>
+      <div class="card-body">Per i servizi essenziali lo Stato entra direttamente nel mercato. Es: <strong>Ferrovie dello Stato, Enel, Poste Italiane</strong> — servono tutti, anche dove il mercato non arriva.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <div class="eyebrow">Chi controlla cosa</div>
+  <div class="tbl-wrap" style="margin-top:1rem">
+    <table>
+      <thead>
+        <tr>
+          <th>Ente</th>
+          <th>Funzione principale</th>
+          <th>Limite tutelato</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>INAIL</strong></td><td>Infortuni e malattie professionali</td><td>Sicurezza, Salute</td></tr>
+        <tr><td><strong>INPS</strong></td><td>Contributi previdenziali, contrasto lavoro nero</td><td>Dignità umana</td></tr>
+        <tr><td><strong>AGCM (Antitrust)</strong></td><td>Concorrenza sleale, greenwashing, abusi dominanza</td><td>Utilità sociale</td></tr>
+        <tr><td><strong>ASL / ARPA</strong></td><td>Inquinamento, rifiuti, emissioni tossiche</td><td>Ambiente, Salute</td></tr>
+        <tr><td><strong>Ispettorato del Lavoro</strong></td><td>Sicurezza cantieri, caporalato, lavoro nero</td><td>Sicurezza, Dignità, Libertà</td></tr>
+        <tr><td><strong>Garante Privacy</strong></td><td>Uso dati personali, rispetto GDPR</td><td>Libertà</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S4 — ATTUALITÀ
+══════════════════════════════════════════ -->
+<section id="s4" class="section">
+  <div class="eyebrow">Sezione 4 · Dati reali 2025–2026</div>
+  <h2 class="section-title">L'Art. 41<br><em>In Azione</em></h2>
+  <p class="lead">I limiti del Comma 2 non sono solo belle parole: ogni anno giudici e autorità li usano per sanzionare chi viola le regole. Ecco casi e numeri concreti.</p>
+
+  <div class="stats-row">
+    <div class="stat-card">
+      <div class="num">1.093</div>
+      <div class="unit">vittime</div>
+      <div class="lbl">morti sul lavoro in Italia nel 2025 (INAIL)</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">600K</div>
+      <div class="unit">infortuni</div>
+      <div class="lbl">denunce totali registrate nel 2025</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">98K+</div>
+      <div class="unit">malattie</div>
+      <div class="lbl">malattie professionali denunciate: record storico</div>
+    </div>
+    <div class="stat-card">
+      <div class="num">100M</div>
+      <div class="unit">euro</div>
+      <div class="lbl">multa ad Apple per raccolta dati opaca (AGCM 2025)</div>
+    </div>
+  </div>
+
+  <div class="news-grid" style="margin-top:2rem">
+    <div class="news-card">
+      <div class="news-tag red">⛑️ Sicurezza</div>
+      <div class="news-title">Morti sul lavoro: 1.093 nel 2025</div>
+      <div class="news-body">Secondo INAIL, quasi 600.000 infortuni e 1.093 morti nel 2025. Il <strong>36% delle revoche del "rating di legalità"</strong> è avvenuto per gravi violazioni in materia di sicurezza: le aziende coinvolte perdono accesso a finanziamenti pubblici e appalti.</div>
+      <div class="news-source">📊 Fonte: INAIL · Relazione 2026</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-tag green">🌿 Ambiente</div>
+      <div class="news-title">Greenwashing: l'istruttoria su Shein</div>
+      <div class="news-body">Nel 2025 l'Antitrust italiano ha avviato un'istruttoria contro i colossi del fast fashion (inclusa <strong>Shein</strong>) per greenwashing: dichiararsi "eco" mentre si produce enorme inquinamento e si sfrutta la filiera produttiva. Il 12% delle imprese sanzionate ha perso benefici statali per smaltimento illecito di rifiuti.</div>
+      <div class="news-source">📊 Fonte: AGCM · 2025</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-tag amber">🫂 Dignità</div>
+      <div class="news-title">Caporalato: il divario che non deve esistere</div>
+      <div class="news-body">I lavoratori stranieri muoiono sul lavoro in proporzione quasi <strong>2,5 volte superiore</strong> agli italiani (72 vs 28 ogni milione di occupati). Segnale evidente di caporalato e lavoro nero in agricoltura e logistica, dove le imprese abbattono i costi negando diritti basilari.</div>
+      <div class="news-source">📊 Fonte: INAIL · Rapporto 2025</div>
+    </div>
+
+    <div class="news-card">
+      <div class="news-tag blue">🗽 Libertà</div>
+      <div class="news-title">Apple multata per 100 milioni di euro</div>
+      <div class="news-body">L'Antitrust ha sanzionato Apple nel 2025 per aver ostacolato in modo poco trasparente il consenso degli utenti al tracciamento dei dati. Raccogliere e vendere dati in modo opaco agli inserzionisti <strong>viola la libertà di scelta</strong> del cittadino protetta dall'Art. 41.</div>
+      <div class="news-source">📊 Fonte: AGCM · 2025</div>
+    </div>
+  </div>
+
+  <div class="notice green">
+    <div class="notice-icon">🔑</div>
+    <div>
+      <div class="notice-title">Conclusione: l'Art. 41 è vivo, ogni giorno</div>
+      <div class="notice-body">Non è roba da libri polverosi. Viene usato quotidianamente per <strong>multare le Big Tech</strong> che raccolgono i nostri dati, <strong>chiudere i cantieri pericolosi</strong>, <strong>bloccare chi mente</strong> sull'impatto ambientale del proprio prodotto.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S5 — TIPI D'IMPRESA
+══════════════════════════════════════════ -->
+<section id="s5" class="section">
+  <div class="eyebrow">Sezione 5 · Classificazioni</div>
+  <h2 class="section-title">I Tipi di<br><em>Impresa</em></h2>
+  <p class="lead">Le imprese si classificano in base a quattro criteri diversi: grandezza, struttura legale, obiettivo e settore. Conoscerle aiuta a capire il tessuto economico italiano.</p>
+
+  <!-- CRITERIO DIMENSIONE -->
+  <div class="eyebrow">1. Per Dimensione — Parametri UE</div>
+  <div class="tbl-wrap" style="margin-top:1rem">
+    <table>
+      <thead>
+        <tr>
+          <th>Tipologia</th>
+          <th>Dipendenti</th>
+          <th>Fatturato annuo massimo</th>
+          <th>Esempi italiani</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Microimpresa</strong></td><td>Meno di 10</td><td>≤ 2 milioni €</td><td>Bar, parrucchiere, artigiano</td></tr>
+        <tr><td><strong>Piccola Impresa</strong></td><td>Meno di 50</td><td>≤ 10 milioni €</td><td>Piccola fabbrica, studio professionale</td></tr>
+        <tr><td><strong>Media Impresa</strong></td><td>Meno di 250</td><td>≤ 50 milioni €</td><td>Azienda manifatturiera distrettuale</td></tr>
+        <tr><td><strong>Grande Impresa</strong></td><td>250 o più</td><td>Oltre 50 milioni €</td><td>Ferrero, Benetton, Luxottica</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="notice green">
+    <div class="notice-icon">🇮🇹</div>
+    <div>
+      <div class="notice-title">Il tessuto economico italiano</div>
+      <div class="notice-body">Le PMI (Piccole e Medie Imprese) rappresentano <strong>oltre il 99%</strong> delle aziende attive in Italia. L'economia italiana è fatta di botteghe, artigiani, startup e aziende familiari — non solo grandi multinazionali.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- CRITERIO FORMA GIURIDICA -->
+  <div class="eyebrow">2. Per Forma Giuridica — Chi risponde dei debiti?</div>
+  <div class="forme-grid" style="margin-top:1rem">
+    <div class="forma" style="--color:var(--red)">
+      <div class="forma-label">Impresa Individuale</div>
+      <div class="forma-title">👤 Ditta Individuale</div>
+      <div class="forma-body">Un solo titolare. La forma più semplice ed economica da aprire. Attenzione: se l'impresa fa debiti gravi, rischi di perdere <em>casa e risparmi personali</em>.</div>
+      <div class="forma-risk">⚠️ Responsabilità illimitata</div>
+    </div>
+    <div class="forma" style="--color:var(--amber)">
+      <div class="forma-label">Società di Persone</div>
+      <div class="forma-title">🤝 S.n.c. · S.a.s.</div>
+      <div class="forma-body">Più soci si mettono insieme. Responsabilità ancora solidale e illimitata: ogni socio risponde con il proprio patrimonio per i debiti di tutti.</div>
+      <div class="forma-risk">⚠️ Responsabilità solidale</div>
+    </div>
+    <div class="forma" style="--color:var(--green)">
+      <div class="forma-label">Società di Capitali</div>
+      <div class="forma-title">🏛️ S.r.l. · S.p.A.</div>
+      <div class="forma-body">L'azienda è una "persona" indipendente. Nel peggiore dei casi perdi solo quanto hai investito — i tuoi risparmi personali sono intoccabili. Più burocrazia, più protezione.</div>
+      <div class="forma-risk">✅ Responsabilità limitata</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- CRITERIO SCOPO -->
+  <div class="eyebrow">3. Per Scopo — Perché esiste?</div>
+  <div class="cards" style="margin-top:1rem">
+    <div class="card" style="--card-accent:var(--amber)">
+      <div class="card-icon">💹</div>
+      <div class="card-title">For-profit</div>
+      <div class="card-body">Obiettivo: generare utili da dividere tra soci o azionisti. Il modello classico dell'economia di mercato.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--blue)">
+      <div class="card-icon">🤲</div>
+      <div class="card-title">Non-profit — Terzo Settore</div>
+      <div class="card-body">Produce servizi ma non distribuisce utili: tutto viene reinvestito per fini sociali o assistenziali. Es: cooperative sociali, ONLUS, APS.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--green)">
+      <div class="card-icon">🌱</div>
+      <div class="card-title">Società Benefit (B-Corp)</div>
+      <div class="card-body">Modello ibrido moderno: fa profitto ma ha scritto nello statuto l'obbligo di creare un impatto positivo <strong>misurabile</strong> su ambiente o comunità.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- CRITERIO SETTORE -->
+  <div class="eyebrow">4. Per Settore Produttivo</div>
+  <div class="steps" style="margin-top:1rem">
+    <div class="step">
+      <div class="step-n" style="font-size:1.4rem">🌾</div>
+      <div>
+        <div class="step-title">Settore Primario</div>
+        <div class="step-body">Sfruttamento diretto delle risorse naturali: agricoltura, allevamento, pesca, attività estrattive (miniere, cave).</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n" style="font-size:1.4rem">⚙️</div>
+      <div>
+        <div class="step-title">Settore Secondario</div>
+        <div class="step-body">Trasformazione delle materie prime: industria automobilistica, tessile, alimentare, edilizia e manifattura.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n" style="font-size:1.4rem">🏪</div>
+      <div>
+        <div class="step-title">Settore Terziario</div>
+        <div class="step-body">Fornitura di servizi: commercio, banche, trasporti, turismo, ristorazione — tutto ciò che non è produzione fisica diretta.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-n" style="font-size:1.4rem">💻</div>
+      <div>
+        <div class="step-title">Terziario Avanzato (Quaternario)</div>
+        <div class="step-body">Servizi ad alto contenuto intellettuale e tecnologico: software, IA, ricerca scientifica, consulenza, startup innovative. Richiede personale altamente specializzato.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S6 — SOSTENIBILITÀ
+══════════════════════════════════════════ -->
+<section id="s6" class="section">
+  <div class="eyebrow">Sezione 6 · ESG &amp; Agenda 2030</div>
+  <h2 class="section-title">Impresa e<br><em>Sostenibilità</em></h2>
+  <p class="lead">Un'impresa moderna non si valuta solo dal profitto. Genera valore su quattro dimensioni e deve rispondere a tutti i soggetti che la circondano — non solo agli azionisti.</p>
+
+  <!-- 4 VALORI -->
+  <div class="eyebrow">Le 4 Dimensioni del Valore d'Impresa</div>
+  <div class="cards" style="margin-top:1rem">
+    <div class="card" style="--card-accent:var(--green)">
+      <div class="card-icon">💰</div>
+      <div class="card-title">Valore Economico</div>
+      <div class="card-body">Genera profitto, paga le tasse, remunera chi ha investito. Senza questa base l'impresa fallisce: è la fondamenta di tutto.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--blue)">
+      <div class="card-icon">👷</div>
+      <div class="card-title">Valore Lavorativo</div>
+      <div class="card-body">Non solo stipendi: sicurezza economica per le famiglie, crescita professionale, luoghi di lavoro sicuri e stimolanti.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--amber)">
+      <div class="card-icon">🔬</div>
+      <div class="card-title">Valore Innovativo</div>
+      <div class="card-body">Le aziende sono il principale motore di Ricerca &amp; Sviluppo. Un'innovazione tecnologica migliora la vita di tutti, a cascata.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--red)">
+      <div class="card-icon">🏘️</div>
+      <div class="card-title">Valore Sociale</div>
+      <div class="card-body">Welfare aziendale, sostegno a iniziative locali, soluzioni a problemi collettivi. L'impresa vive <em>dentro</em> la società.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- ESG -->
+  <div class="eyebrow">Il Modello ESG — Responsabilità Sociale d'Impresa (RSI/CSR)</div>
+  <p style="font-size:.9rem;color:var(--ink-mid);margin-bottom:1.2rem;margin-top:.5rem;">Riconosciuto anche dal <a href="https://www.lavoro.gov.it/temi-e-priorita/terzo-settore-e-responsabilita-sociale-imprese" style="color:var(--green);font-weight:600">Ministero del Lavoro italiano</a> come framework chiave per le imprese responsabili.</p>
+  <div class="esg-row">
+    <div class="esg E">
+      <div class="esg-letter">E</div>
+      <div class="esg-title">Environmental — Ambiente</div>
+      <div class="esg-body">Ridurre l'impronta ecologica: meno emissioni, fonti rinnovabili, economia circolare. Per le aziende IT: data center alimentati a energia pulita.</div>
+    </div>
+    <div class="esg S">
+      <div class="esg-letter">S</div>
+      <div class="esg-title">Social — Persone</div>
+      <div class="esg-body">Rispetto dei diritti umani in tutta la filiera, parità di genere, inclusione. Nessuno sfruttamento lungo la catena di fornitura.</div>
+    </div>
+    <div class="esg G">
+      <div class="esg-letter">G</div>
+      <div class="esg-title">Governance — Trasparenza</div>
+      <div class="esg-body">Regole interne chiare, bilanci trasparenti, controllo indipendente. Un'impresa ben governata è più affidabile e dura nel tempo.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- SDGs -->
+  <div class="eyebrow">Agenda 2030 — SDGs chiave per le imprese</div>
+  <p style="font-size:.88rem;color:var(--ink-mid);margin:.6rem 0 1.2rem;">Nel 2015 l'ONU ha definito 17 Obiettivi di Sviluppo Sostenibile. Gli Stati da soli non bastano: le imprese sono chiamate a essere protagoniste.</p>
+  <div class="sdg-grid">
+    <div class="sdg">
+      <div class="sdg-n">8</div>
+      <div><div class="sdg-text">Lavoro Dignitoso</div><div class="sdg-sub">Nessun lavoratore sfruttato, retribuzione equa</div></div>
+    </div>
+    <div class="sdg">
+      <div class="sdg-n">9</div>
+      <div><div class="sdg-text">Imprese &amp; Innovazione</div><div class="sdg-sub">Investire in tecnologie pulite ed efficienti</div></div>
+    </div>
+    <div class="sdg">
+      <div class="sdg-n">12</div>
+      <div><div class="sdg-text">Produzione Responsabile</div><div class="sdg-sub">Economia circolare, zero sprechi</div></div>
+    </div>
+    <div class="sdg">
+      <div class="sdg-n">13</div>
+      <div><div class="sdg-text">Lotta al Clima</div><div class="sdg-sub">Ridurre le emissioni di CO₂</div></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- STAKEHOLDER -->
+  <div class="eyebrow">Oltre l'Azionista — La Stakeholder Theory</div>
+  <p style="font-size:.9rem;color:var(--ink-mid);margin:.6rem 0 1.2rem;">Per decenni ha dominato la <em>Shareholder Theory</em>: l'unico scopo dell'impresa era far guadagnare gli azionisti. Oggi questo modello è superato. Un'impresa deve rispondere a <strong>tutti i portatori di interesse</strong>.</p>
+  <div class="sh-grid">
+    <div class="sh">
+      <div class="sh-ico">👷</div>
+      <div class="sh-name">Lavoratori</div>
+      <div class="sh-desc">Non "costi da tagliare" ma risorse chiave. Chiedono sicurezza, formazione continua e bilanciamento vita-lavoro.</div>
+    </div>
+    <div class="sh">
+      <div class="sh-ico">🛒</div>
+      <div class="sh-name">Consumatori</div>
+      <div class="sh-desc">Vogliono trasparenza, prodotti sicuri e aziende eticamente irreprensibili. Il boicottaggio è il loro strumento.</div>
+    </div>
+    <div class="sh">
+      <div class="sh-ico">🌳</div>
+      <div class="sh-name">Ambiente &amp; Territorio</div>
+      <div class="sh-desc">Chi vive vicino a un'azienda ne subisce traffico, rumore, inquinamento. Merita rispetto e compensazioni concrete.</div>
+    </div>
+    <div class="sh">
+      <div class="sh-ico">📈</div>
+      <div class="sh-name">Azionisti</div>
+      <div class="sh-desc">Vogliono il ritorno del loro investimento, ma il loro interesse va ora bilanciato con quello degli altri gruppi.</div>
+    </div>
+  </div>
+
+  <div class="notice red">
+    <div class="notice-icon">❗</div>
+    <div>
+      <div class="notice-title">Il punto chiave</div>
+      <div class="notice-body">Generare valore solo per gli azionisti <em>distruggendo il territorio</em> o <em>sfruttando i lavoratori</em> non è "fare impresa": è <strong>estrazione predatoria di ricchezza</strong>. È esattamente ciò che l'Articolo 41 vuole impedire.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════
+     S7 — LEGALITÀ
+══════════════════════════════════════════ -->
+<section id="s7" class="section">
+  <div class="eyebrow">Sezione 7 · Legalità</div>
+  <h2 class="section-title">Imprenditore e<br><em>Legalità</em></h2>
+  <p class="lead">Essere legali non è solo un obbligo morale: è un vantaggio competitivo. Chi truffa il mercato lo avvelena per tutti. Tre aree fondamentali della legalità aziendale.</p>
+
+  <!-- CONCORRENZA -->
+  <div class="eyebrow">1. Libera Concorrenza</div>
+  <p style="font-size:.9rem;color:var(--ink-mid);margin:.6rem 0 1.2rem;">Il mercato funziona se tutti giocano ad armi pari. L'imprenditore onesto compete migliorando il proprio prodotto. L'imprenditore disonesto <em>trucca il gioco</em>.</p>
+  <div class="cards" style="margin-top:.5rem">
+    <div class="card" style="--card-accent:var(--red)">
+      <div class="card-icon">🤫</div>
+      <div class="card-title">Cartelli (intese vietate)</div>
+      <div class="card-body">Più concorrenti si accordano segretamente per non farsi guerra: mantengono prezzi alti o si dividono il mercato. Vietato dall'Antitrust. Es: compagnie telefoniche che allineano le tariffe.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--amber)">
+      <div class="card-icon">🦁</div>
+      <div class="card-title">Abuso di posizione dominante</div>
+      <div class="card-body">Un colosso usa la sua grandezza per schiacciare startup e impedire nuovi entranti nel mercato. Il caso classico delle Big Tech europee.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--blue)">
+      <div class="card-icon">🕵️</div>
+      <div class="card-title">Concorrenza sleale</div>
+      <div class="card-body">Rubare codice sorgente, diffondere fake news sui concorrenti, spionaggio industriale. Si combatte con mezzi scorretti invece che con il merito.</div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- PRATICHE ILLEGALI -->
+  <div class="eyebrow">2. Rifiuto delle Pratiche Illegali</div>
+  <div class="crime-grid" style="margin-top:1rem">
+    <div class="crime">
+      <div class="crime-title">💸 Lavoro Nero</div>
+      <div class="crime-row">
+        <div class="crime-lbl">Chi subisce il danno</div>
+        <div class="crime-val">Il lavoratore: niente INAIL in caso di infortuni, niente pensione, niente tutele contrattuali.</div>
+      </div>
+      <div class="crime-row">
+        <div class="crime-lbl">Danno per il mercato</div>
+        <div class="crime-val">L'azienda disonesta abbatte i costi fraudolentemente: fa concorrenza sleale a quelle oneste.</div>
+      </div>
+    </div>
+    <div class="crime">
+      <div class="crime-title">🤑 Corruzione</div>
+      <div class="crime-row">
+        <div class="crime-lbl">Chi subisce il danno</div>
+        <div class="crime-val">Lo Stato spende male i soldi pubblici, ottenendo infrastrutture scadenti o pericolose per tutti.</div>
+      </div>
+      <div class="crime-row">
+        <div class="crime-lbl">Danno per il mercato</div>
+        <div class="crime-val">Negli appalti vince chi paga la "mazzetta", non chi ha il progetto migliore: fine della meritocrazia.</div>
+      </div>
+    </div>
+    <div class="crime">
+      <div class="crime-title">🦅 Criminalità Organizzata</div>
+      <div class="crime-row">
+        <div class="crime-lbl">Chi subisce il danno</div>
+        <div class="crime-val">Il territorio: intimidazioni, usura agli esercenti locali, controllo violento del mercato.</div>
+      </div>
+      <div class="crime-row">
+        <div class="crime-lbl">Danno per il mercato</div>
+        <div class="crime-val">Le aziende di facciata "lavano" denaro sporco e vendono sottocosto, distruggendo l'economia locale sana.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- TUTELA CONSUMATORI -->
+  <div class="eyebrow">3. Tutela dei Consumatori</div>
+  <p style="font-size:.9rem;color:var(--ink-mid);margin:.6rem 0 1.2rem;">Il consumatore è la "parte debole" del mercato: ha meno informazioni del produttore. Il <strong>Codice del Consumo</strong> impone due standard fondamentali.</p>
+  <div class="cards" style="margin-top:.5rem">
+    <div class="card" style="--card-accent:var(--green)">
+      <div class="card-icon">🛡️</div>
+      <div class="card-title">Sicurezza dei prodotti</div>
+      <div class="card-body">I beni fisici devono rispettare le certificazioni europee (<strong>marchio CE</strong>). Per i servizi digitali: architetture <em>Security by Design</em> per proteggere i dati degli utenti dagli hacker.</div>
+    </div>
+    <div class="card" style="--card-accent:var(--blue)">
+      <div class="card-icon">📋</div>
+      <div class="card-title">Trasparenza e GDPR</div>
+      <div class="card-body">Vietata la pubblicità ingannevole e le clausole nascoste. Nel digitale: il <strong>GDPR</strong> impone di spiegare chiaramente quali dati si raccolgono, perché, e ottenere un consenso reale e informato.</div>
+    </div>
+  </div>
+
+  <div class="notice red">
+    <div class="notice-icon">📝</div>
+    <div>
+      <div class="notice-title">Messaggio finale</div>
+      <div class="notice-body">Un'azienda che fa profitti evadendo le tasse, corrompendo funzionari o sfruttando il lavoro nero <strong>non sta creando valore</strong>. Sta compiendo un'estrazione di ricchezza a danno della società. L'Articolo 41 esiste esattamente per fermarlo — e le autorità garanti lo fanno ogni giorno, con dati reali alle spalle.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="tricolor"></div>
+  <p><strong>Art. 41 della Costituzione della Repubblica Italiana</strong></p>
+  <p style="margin-top:.4rem">
+    Fonti:
+    <a href="https://www.senato.it/istituzione/la-costituzione/parte-i/titolo-iii/articolo-41" target="_blank">Senato.it</a> ·
+    <a href="https://www.brocardi.it/costituzione/parte-i/titolo-iii/art41.html" target="_blank">Brocardi.it</a> ·
+    <a href="https://www.lavoro.gov.it/temi-e-priorita/terzo-settore-e-responsabilita-sociale-imprese" target="_blank">Ministero del Lavoro</a> ·
+    INAIL Rapporto 2026 · AGCM 2025
+  </p>
+  <p style="margin-top:.6rem;font-size:.72rem">Elaborazione digitale a scopo divulgativo · Educazione Civica</p>
+</footer>
+
+<script>
+function show(id, btn) {
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  const nav = document.querySelector('nav');
+  window.scrollTo({ top: nav.offsetTop, behavior: 'smooth' });
+}
+</script>
+</body>
+</html>
